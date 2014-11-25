@@ -19,7 +19,7 @@ setup(
     long_description=long_description,
     author='Jan-Hendrik Dolling',
     url='https://github.com/JanHendrikDolling/configvalidator',
-    download_url = 'https://github.com/JanHendrikDolling/configvalidator/tarball/0.0.1',
+    download_url = 'https://github.com/JanHendrikDolling/configvalidator/archive/master.zip',
     license='Apache License 2.0',
     packages=['configvalidator'],
     install_requires=['six'],
