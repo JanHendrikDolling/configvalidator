@@ -1,0 +1,1 @@
+hiddenimports=["ConfigParser", "urllib.urlparse"]
