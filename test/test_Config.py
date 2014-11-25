@@ -15,7 +15,7 @@ from configvalidator import ConfigValidator
 from configvalidator import ConfigValidatorException
 from configvalidator import Validator
 from configvalidator import Feature
-import configvalidator as cv_to_mock
+import configvalidator.configvalidator as cv_to_mock
 import mock
 
 
@@ -1297,6 +1297,7 @@ class Test(unittest.TestCase):
                 "B": {
                     "validator": "EMAIL",
                     "default": "test@test.de",
+
                     "EMAIL_method": "regex",
                 },
             },
@@ -1604,7 +1605,7 @@ class Test(unittest.TestCase):
                 raise
 
     def test_new_a(self):
-        from configvalidator import Entry
+        from configvalidator.configvalidator import Entry
         with self.assertRaises(ConfigValidatorException):
             try:
                 Entry.__new__(Entry)
@@ -1654,14 +1655,14 @@ class Test(unittest.TestCase):
                 raise
 
     def test_metaclass_1a(self):
-        from configvalidator import CollectMetaclass
+        from configvalidator.configvalidator import CollectMetaclass
 
         class Test(object):
             pass
         self.assertEqual("object", CollectMetaclass.get_basis_name(Test()))
 
     def test_singleton(self):
-        from configvalidator import StoreSingleton
+        from configvalidator.configvalidator import StoreSingleton
 
         class A(object):
             name = "A"
@@ -1673,29 +1674,29 @@ class Test(unittest.TestCase):
         self.assertEqual(t, b.get_feature("A"))
 
     def test_attributeDict_1(self):
-        from configvalidator import AttributeDict
+        from configvalidator.configvalidator import AttributeDict
         a = AttributeDict()
         self.assertFalse("x" in a)
 
     def test_attributeDict_2(self):
-        from configvalidator import AttributeDict
+        from configvalidator.configvalidator import AttributeDict
         a = AttributeDict({"x": 1})
         self.assertTrue("x" in a)
         self.assertEqual(a.x, 1)
         self.assertEqual(a["x"], 1)
 
     def test_attributeDict_3(self):
-        from configvalidator import AttributeDict
+        from configvalidator.configvalidator import AttributeDict
         a = AttributeDict({"has_key": 1})
         self.assertTrue("has_key" in a)
 
     def test_attributeDict_4(self):
-        from configvalidator import AttributeDict
+        from configvalidator.configvalidator import AttributeDict
         a = AttributeDict({"a": {"b": 1}})
         self.assertEquals(a.get("a", "b"), 1)
 
     def test_attributeDict_5(self):
-        from configvalidator import AttributeDict
+        from configvalidator.configvalidator import AttributeDict
         a = AttributeDict()
         with self.assertRaises(AttributeError):
             a.x

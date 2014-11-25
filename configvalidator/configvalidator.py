@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-Created on 20.03.2014
+Created on 22.03.2014
 
 @license: http://www.apache.org/licenses/LICENSE-2.0
 @author: Jan-Hendrik Dolling
@@ -20,7 +20,12 @@ from six.moves import configparser
 from six.moves.urllib.parse import urlparse
 
 
+class NullHandler(logging.Handler):
+    def emit(self, record):
+        pass
+
 logger = logging.getLogger("configvalidator")
+logger.addHandler(NullHandler())
 
 
 class StoreSingleton(object):
@@ -287,11 +292,11 @@ class Entry(object):
     IMPORTAND:
     if you write your own subclass from Validator and Features and
     you create your own __init__ methode don't forget to call
-    super(INSERT_YOUR_CLASS_NAME, self).__init__()
+    super(self.__class__, self).__init__()
 
     The folloring class attributes are possible:
-        entry_name (String): The globale name for this Validator/Features
-                        under which it can be used in the ini_validator dict.
+        name (String): The globale name for this Validator/Features
+                       under which it can be used in the ini_validator dict.
         inaktiv (bool): if set to True this class can't be used in
                         the ini_validator dict.
 
@@ -1132,8 +1137,8 @@ Feature".format(feature.__name__))
                 if store.has_validator(entry_name):
                     entry_name = store.get_validator(entry_name)
                 else:
-                    raise ConfigValidatorException("No Validator with name {0} \
-for [{1}]->{2}".format(entry_name, self.section, self.option))
+                    raise ConfigValidatorException("No Validator with name \
+{0} for [{1}]->{2}".format(entry_name, self.section, self.option))
             if not issubclass(entry_name, Validator):
                 raise ConfigValidatorException("{0} must be a subclass from \
 Validator".format(entry_name.__name__))
@@ -1196,7 +1201,7 @@ a dict")
 class AttributeDict(dict):
 
     """
-    Dict das auch ueber
+    Dict which holds the result values
     """
 
     def __getattr__(self, name):
