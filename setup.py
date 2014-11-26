@@ -20,7 +20,7 @@ else:
 
 setup(
     name = "ConfigValidator",
-    version = "0.1.0",
+    version = "0.1.1",
     description='python module to Validate ini File user input',
     long_description=long_description,
     author='Jan-Hendrik Dolling',
