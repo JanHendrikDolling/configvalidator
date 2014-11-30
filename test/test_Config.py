@@ -270,18 +270,12 @@ class Test(unittest.TestCase):
                 raise
 
     def test_3a(self):
-        with self.assertRaises(ConfigValidatorException):
-            try:
-                ConfigValidator(
-                    ini_path=os.path.join(
+        conf = ConfigValidator(
+            ini_path=os.path.join(
                         base,
                         "config.ini"),
-                    ini_validator=None)
-            except ConfigValidatorException as e:
-                self.assertEqual(
-                    str(e),
-                    'parameter ini_validator must be a dict')
-                raise
+            ini_validator=None).parse()
+        self.assertEqual(conf, {})
 
     def test_3b(self):
         conf = ConfigValidator(
@@ -795,6 +789,7 @@ class Test(unittest.TestCase):
                     "LIST_INPUT_return": lambda x: int(x),
                     "LIST_INPUT_exit_on_error": True,
                     "default": "True",
+
                 },
             },
         }
@@ -1548,6 +1543,7 @@ class Test(unittest.TestCase):
                     str(e),
                     'instance error - create instance via enviroment get_instance method')
                 raise
+
 
     def test_import_c(self):
         from configvalidator import BoolValidator

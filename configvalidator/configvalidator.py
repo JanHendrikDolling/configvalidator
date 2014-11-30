@@ -1149,7 +1149,7 @@ Validator".format(entry_name.__name__))
             inst.__init__(*init_args)
             return inst
 
-    def __init__(self, ini_path, ini_validator={}):
+    def __init__(self, ini_path, ini_validator=None):
         """Inits ConfigValidator
 
         Args:
@@ -1161,6 +1161,8 @@ Validator".format(entry_name.__name__))
             ConfigValidatorException: if arg ini_validator is no dict
                                       if arg ini_path is no File or don't exist
         """
+        if ini_validator is None:
+            ini_validator = {}
         if not isinstance(ini_validator, dict):
             raise ConfigValidatorException("parameter ini_validator must be \
 a dict")
