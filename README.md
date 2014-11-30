@@ -16,7 +16,7 @@ from configvalidator import ConfigValidator
 imagine the following ini file
 
 ``` text
-[Section A]
+[SectionA]
 option1 = Hello Welt
 option2 = 50
 
@@ -37,7 +37,8 @@ ini_validator = {
     "SectionB": {
         "option1":{
             "return": lambda x: int(x),
-            "default": 100,        
+            "default": 100, 
+        },       
     },  
 }
 ```
