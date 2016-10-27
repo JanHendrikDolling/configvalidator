@@ -13,10 +13,9 @@ python:
   - "pypy3"
 # command to install dependencies
 install:
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then travis_retry pip install ordereddict unittest2; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 'pypy'* ]]; then travis_retry pip install cryptography==0.9; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then travis_retry pip install pyOpenSSL; fi
   - pip install .
-  - if [[ $TRAVIS_PYTHON_VERSION == 2.6 ]]; then pip install ordereddict unittest2; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == pypy ]]; then pip install cryptography==0.9; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == pypy3 ]]; then pip install cryptography==0.9; fi
-  - pip install pyOpenSSL
 # command to run tests
 script: nosetests
