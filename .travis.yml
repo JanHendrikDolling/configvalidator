@@ -14,7 +14,7 @@ python:
 # command to install dependencies
 install:
   - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then travis_retry pip install ordereddict unittest2; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 'pypy'* ]]; then travis_retry pip install cryptography==0.9; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 'pypy'* ]]; then travis_retry pip install cryptography==0.9 pyOpenSSL==0.15; fi
   - if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then travis_retry pip install pyOpenSSL; fi
   - pip install .
 # command to run tests
