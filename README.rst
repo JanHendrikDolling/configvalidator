@@ -1,7 +1,6 @@
 
-.. image:: https://travis-ci.org/JanHendrikDolling/configvalidator.svg?branch=master
-    :target: https://travis-ci.org/JanHendrikDolling/configvalidator
 
+| |status| |kit| |codecov|
 
 configvalidator
 ===============
@@ -28,3 +27,15 @@ Links
 * https://pypi.python.org/pypi/ConfigValidator
 
 * `Fork me on GitHub <https://github.com/JanHendrikDolling/configvalidator>`_
+
+
+
+.. |status| image:: https://travis-ci.org/JanHendrikDolling/configvalidator.svg?branch=master
+    :target: https://travis-ci.org/JanHendrikDolling/configvalidator
+    :alt: Build status
+.. |kit| image:: https://badge.fury.io/py/ConfigValidator.svg
+    :target: https://badge.fury.io/py/ConfigValidator
+    :alt: PyPI status
+.. |codecov| image:: https://codecov.io/github/JanHendrikDolling/configvalidator/coverage.svg?branch=master
+    :target: http://codecov.io/github/JanHendrikDolling/configvalidator?branch=master
+    :alt: Coverage!
