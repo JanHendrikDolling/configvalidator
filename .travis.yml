@@ -14,5 +14,6 @@ python:
 # command to install dependencies
 install:
   - pip install .
+  - pip install pyOpenSSL
 # command to run tests
 script: nosetests
