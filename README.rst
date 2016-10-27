@@ -1,3 +1,8 @@
+
+.. image:: https://travis-ci.org/JanHendrikDolling/configvalidator.svg?branch=master
+    :target: https://travis-ci.org/JanHendrikDolling/configvalidator
+
+
 configvalidator
 ===============
 
@@ -21,7 +26,5 @@ Links
 -----
 
 * https://pypi.python.org/pypi/ConfigValidator
-
-* `Read the documentation <http://configvalidator.readthedocs.org/>`_
 
 * `Fork me on GitHub <https://github.com/JanHendrikDolling/configvalidator>`_
