@@ -1,0 +1,21 @@
+Changelog
+=========
+
+
+
+0.2.0 (unreleased)
+------------------
+
+* Documentation
+* Test coverage
+* Examples
+
+Changes:
+
+* incompatible interface changes
+
+
+0.1.1 (2014-11-26)
+------------------
+
+* First release.

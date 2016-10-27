@@ -1,3 +1,11 @@
-include README.md
-include test/*.ini
-include test/*.py
+include README.rst
+include LICENSE
+include setup.cfg
+include tox.ini
+recursive-include test *
+recursive-include exanple *
+recursive-include hooks *
+global-exclude *pyc
+
+
+
