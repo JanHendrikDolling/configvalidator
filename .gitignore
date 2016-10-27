@@ -35,7 +35,9 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.tox/*
 .coverage
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
@@ -52,3 +54,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# IDE
+.idea/

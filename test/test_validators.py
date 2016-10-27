@@ -157,7 +157,7 @@ class Test(unittest.TestCase):
         max.validate("-5000")
         with self.assertRaises(ValidatorException) as e3:
             max.validate("50.1")
-        self.assertEqual(str(e3.exception), "maximum: 50")
+        self.assertEqual(str(e3.exception), "maximum: 50.0")
 
     def test_json(self):
         from configvalidator.validators import JsonValidator
@@ -461,7 +461,7 @@ class Test(unittest.TestCase):
         no_limits.validate("test@sample.com")
         with self.assertRaises(ValidatorException) as e1:
             no_limits.validate("sample.com")
-        self.assertEqual(str(e1.exception), "No Matching")
+        self.assertEqual(str(e1.exception), "invalid email format")
         hostname = EmailValidator(hostname=["sample.com"])
         hostname.validate("test@sample.com")
         with self.assertRaises(ValidatorException) as e2:
@@ -501,7 +501,7 @@ class Test(unittest.TestCase):
         self.assertEqual("4", v.validate("4"))
         with self.assertRaises(ValidatorException) as e:
             v2.validate("3")
-        self.assertListEqual(['minimum: 4', 'minimum: 4'], sorted(str(e.exception).split("\n")))
+        self.assertListEqual(['minimum: 4', 'minimum: 4.0'], sorted(str(e.exception).split("\n")))
 
     def test_or3(self):
         from configvalidator.validators import OrValidator
@@ -555,7 +555,7 @@ class Test(unittest.TestCase):
             v.validate("9")
         self.assertListEqual(
             sorted(e1.exception.info),
-            sorted(["minimum: 10", "minimum: 10"])
+            sorted(["minimum: 10", "minimum: 10.0"])
         )
         with self.assertRaises(ValidatorException) as e2:
             v.validate("test")
